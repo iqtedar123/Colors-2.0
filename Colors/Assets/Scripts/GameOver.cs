@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 public class GameOver : MonoBehaviour {
 	public Text resultText;
 	public Button restart;
@@ -10,7 +11,7 @@ public class GameOver : MonoBehaviour {
 	void Start () {
 		if (restart != null)
 		{
-			Debug.Log("Initializeing restart");
+			Debug.Log("Initializing restart");
 			Button restartBtn = restart.GetComponent<Button>();
 			restartBtn.onClick.AddListener(restartArcade);
 		}
@@ -30,6 +31,10 @@ public class GameOver : MonoBehaviour {
 	{
 		Debug.Log("Hit restart");
 		//Restart arcade mode
+		SceneManager.LoadScene("ArcadeLevel");
+	}
+	public void restartArcadeFtn()
+	{
 		SceneManager.LoadScene("ArcadeLevel");
 	}
 }
